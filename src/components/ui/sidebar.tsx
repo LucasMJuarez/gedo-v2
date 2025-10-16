@@ -1,21 +1,18 @@
 "use client";
 
 import * as React from "react";
-import { Drawer as MuiDrawer, IconButton, styled, Box } from "@mui/material";
 import { VariantProps, cva } from "class-variance-authority";
 import { PanelLeftIcon } from "lucide-react";
 
 import { useIsMobile } from "./use-mobile";
 import { cn } from "./utils";
-import { Button } from "./button";
 import { Input } from "./input";
 import { Separator } from "./separator";
 import { Sheet, SheetContent } from "./sheet";
 import { Skeleton } from "./skeleton";
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "./tooltip";
+import { Tooltip, TooltipContent, TooltipTrigger } from "./tooltip";
 
 const SIDEBAR_WIDTH = "16rem";
-const SIDEBAR_WIDTH_MOBILE = "18rem";
 const SIDEBAR_WIDTH_ICON = "3rem";
 
 type SidebarContextProps = {
@@ -38,14 +35,7 @@ function useSidebar() {
   return context;
 }
 
-const StyledDrawer = styled(MuiDrawer)(({ theme }) => ({
-  '& .MuiDrawer-paper': {
-    width: SIDEBAR_WIDTH,
-    border: 'none',
-    backgroundColor: 'var(--sidebar-background, var(--background))',
-    color: 'var(--sidebar-foreground, var(--foreground))',
-  },
-}));
+
 
 interface SidebarProviderProps extends React.HTMLAttributes<HTMLDivElement> {
   defaultOpen?: boolean;

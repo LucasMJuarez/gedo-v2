@@ -33,7 +33,6 @@ export function ConsultasExpedientes() {
   const [anio, setAnio] = useState('');
   const [numero, setNumero] = useState('');
   const [reparticionActuacion, setReparticionActuacion] = useState('GCABA');
-  const [reparticionUsuario, setReparticionUsuario] = useState('');
   
   // Filtros según tipo
   const [filtroSeleccionado, setFiltroSeleccionado] = useState('favoritos');
@@ -157,8 +156,7 @@ export function ConsultasExpedientes() {
         </Alert>
 
         <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-          <div className="overflow-x-auto -mx-4 px-4 md:mx-0 md:px-0">
-            <TabsList className="w-full inline-flex justify-start bg-white border-b border-[#E5E5E5] rounded-none h-auto p-0">
+            <TabsList data-tabs-list className="w-full inline-flex justify-start bg-white border-b border-[#E5E5E5] rounded-none h-auto p-0">
             <TabsTrigger 
               value="busqueda-tema" 
               className="rounded-none border-b-2 border-transparent data-[state=active]:border-[#0072C6] data-[state=active]:bg-transparent px-4 py-3 whitespace-nowrap"
@@ -201,6 +199,7 @@ export function ConsultasExpedientes() {
             >
               Consultas
             </TabsTrigger>
+            
             <TabsTrigger 
               value="administracion"
               className="rounded-none border-b-2 border-transparent data-[state=active]:border-[#0072C6] data-[state=active]:bg-transparent px-4 py-3 whitespace-nowrap"
@@ -220,7 +219,6 @@ export function ConsultasExpedientes() {
               Estadísticas Expediente
             </TabsTrigger>
           </TabsList>
-          </div>
 
           <TabsContent value="consultas" className="mt-6">
             <Accordion type="multiple" defaultValue={['numero-sade', 'filtros', 'domicilio']} className="space-y-4">
@@ -812,11 +810,14 @@ export function ConsultasExpedientes() {
             </div>
           </TabsContent>
 
-          {/* Otros tabs - placeholder */}
+          {/* Otros tabs - pantalla en blanco */}
           {['busqueda-tema', 'busqueda-grupal', 'actividades', 'tareas-supervisadas', 'tareas-otros', 'tareas-tramite', 'administracion', 'admin-documentos', 'estadisticas'].map((tab) => (
             <TabsContent key={tab} value={tab} className="mt-6">
-              <div className="bg-white border border-[#E5E5E5] rounded-lg p-8 text-center">
-                <p className="text-[#6C6C6C]">Contenido de {tab} en desarrollo</p>
+              <div className="min-h-[500px] bg-white border border-[#E5E5E5] rounded-lg flex items-center justify-center">
+                <div className="text-center">
+                  <h3 className="text-lg font-medium text-[#1D1D1B] mb-2">Contenido en desarrollo</h3>
+                  <p className="text-[#6C6C6C]">Esta sección estará disponible próximamente.</p>
+                </div>
               </div>
             </TabsContent>
           ))}

@@ -4,7 +4,6 @@ import MuiAccordionSummary from "@mui/material/AccordionSummary";
 import MuiAccordionDetails from "@mui/material/AccordionDetails";
 import { styled } from "@mui/material/styles";
 import { ChevronDownIcon } from "lucide-react";
-import { cn } from "./utils";
 
 const StyledAccordion = styled(MuiAccordion)(({ theme }) => ({
   border: 'none',
@@ -21,7 +20,7 @@ const StyledAccordion = styled(MuiAccordion)(({ theme }) => ({
 const StyledAccordionSummary = styled(MuiAccordionSummary)(({ theme }) => ({
   fontSize: '0.875rem',
   fontWeight: 500,
-  padding: '16px 0',
+  padding: '16px 24px',
   minHeight: 'auto',
   '& .MuiAccordionSummary-content': {
     margin: 0,
