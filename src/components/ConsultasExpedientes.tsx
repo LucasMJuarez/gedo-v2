@@ -221,7 +221,7 @@ export function ConsultasExpedientes() {
           </TabsList>
 
           <TabsContent value="consultas" className="mt-6">
-            <Accordion type="multiple" defaultValue={['numero-sade', 'filtros', 'domicilio']} className="space-y-4">
+            <Accordion type="multiple" defaultValue={['numero-sade', 'filtros', 'domicilio']} className="space-y-4" collapsible>
               {/* Consultar por Número SADE */}
               <AccordionItem value="numero-sade" className="bg-white border border-[#E5E5E5] rounded-lg overflow-hidden">
                 <AccordionTrigger className="px-6 py-4 hover:bg-[#F5F6F7] text-[#0072C6]">
@@ -291,7 +291,7 @@ export function ConsultasExpedientes() {
               </AccordionItem>
 
               {/* Consultar según Filtro */}
-              <AccordionItem value="filtros" className="bg-white border border-[#E5E5E5] rounded-lg overflow-hidden">
+              <AccordionItem value="filtros" className="bg-white border border-[#E5E5E5] rounded-lg overflow-hidden" >
                 <AccordionTrigger className="px-6 py-4 hover:bg-[#F5F6F7] text-[#0072C6]">
                   <div className="flex items-center gap-2">
                     <Search className="w-5 h-5" />
