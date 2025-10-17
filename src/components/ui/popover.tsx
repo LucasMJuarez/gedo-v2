@@ -11,6 +11,10 @@ const StyledPopover = styled(MuiPopover)(({ theme }) => ({
     boxShadow: theme.shadows[8],
     border: `1px solid ${theme.palette.divider}`,
   },
+  // Asegurar que el backdrop no cause problemas
+  '& .MuiBackdrop-root': {
+    backgroundColor: 'transparent',
+  },
 }));
 
 interface PopoverContextValue {
