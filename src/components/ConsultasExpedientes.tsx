@@ -223,18 +223,18 @@ export function ConsultasExpedientes() {
           <TabsContent value="consultas" className="mt-6">
             <Accordion type="multiple" defaultValue={['numero-sade', 'filtros', 'domicilio']} className="space-y-4" collapsible>
               {/* Consultar por Número SADE */}
-              <AccordionItem value="numero-sade" className="bg-white border border-[#E5E5E5] rounded-lg overflow-hidden">
-                <AccordionTrigger className="px-6 py-4 hover:bg-[#F5F6F7]">
-                  <div className="flex items-center gap-2" style={{ color: '#0072C6' }}>
+              <AccordionItem value="numero-sade" className="bg-white border border-[#DDDDDD] rounded-md overflow-hidden">
+                <AccordionTrigger className="px-5 py-3.5 hover:bg-[#F8F9FA] transition-colors duration-200">
+                  <div className="flex items-center gap-3" style={{ color: '#0072C6' }}>
                     <Search className="w-5 h-5" />
-                    <span>Consultar Expedientes por Número SADE</span>
+                    <span className="font-normal text-base">Consultar Expedientes por Número SADE</span>
                   </div>
                 </AccordionTrigger>
-                <AccordionContent className="px-6 pb-6">
+                <AccordionContent className="px-5 pb-5 pt-4 bg-[#FAFBFC]">
                   <div className="space-y-4">
-                    <p className="text-sm text-[#6C6C6C]">Filtros de búsqueda</p>
+                    <p className="text-sm text-[#6C6C6C] font-normal mb-3">Filtros de búsqueda</p>
                     
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3">
                       <div>
                         <Label>Tipo Actuación</Label>
                         <Select 
@@ -280,7 +280,7 @@ export function ConsultasExpedientes() {
                       </div>
                     </div>
                     
-                    <div className="flex gap-2 pt-2">
+                    <div className="flex gap-3 pt-2">
                       <Button variant="primary">
                         <Search className="w-4 h-4 mr-2" />
                         Buscar
@@ -291,17 +291,17 @@ export function ConsultasExpedientes() {
               </AccordionItem>
 
               {/* Consultar según Filtro */}
-              <AccordionItem value="filtros" className="bg-white border border-[#E5E5E5] rounded-lg overflow-hidden" >
-                <AccordionTrigger className="px-6 py-4 hover:bg-[#F5F6F7]">
-                  <div className="flex items-center gap-2" style={{ color: '#0072C6' }}>
+              <AccordionItem value="filtros" className="bg-white border border-[#DDDDDD] rounded-md overflow-hidden">
+                <AccordionTrigger className="px-5 py-3.5 hover:bg-[#F8F9FA] transition-colors duration-200">
+                  <div className="flex items-center gap-3" style={{ color: '#0072C6' }}>
                     <Search className="w-5 h-5" />
-                    <span>Consultar Expedientes según Filtro</span>
+                    <span className="font-normal text-base">Consultar Expedientes según Filtro</span>
                   </div>
                 </AccordionTrigger>
-                <AccordionContent className="px-6 pb-6">
+                <AccordionContent className="px-5 pb-5 pt-4 bg-[#FAFBFC]">
                   <div className="space-y-6">
                     <div>
-                      <p className="text-sm text-[#6C6C6C] mb-3">Filtros de búsqueda</p>
+                      <p className="text-sm text-[#6C6C6C] mb-3 font-normal">Filtros de búsqueda</p>
                       <div className="space-y-2">
                         <Radio 
                           name="filtro" 
@@ -366,7 +366,7 @@ export function ConsultasExpedientes() {
                         </div>
                       </div>
 
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-4">
                         <div>
                           <Label>Fecha Desde</Label>
                           <DatePicker 
@@ -385,7 +385,7 @@ export function ConsultasExpedientes() {
                         </div>
                       </div>
 
-                      <div className="flex gap-2">
+                      <div className="flex gap-3">
                         <Button variant="secondary">
                           <Plus className="w-4 h-4 mr-2" />
                           Agregar
@@ -401,17 +401,17 @@ export function ConsultasExpedientes() {
               </AccordionItem>
 
               {/* Consultar según Domicilio */}
-              <AccordionItem value="domicilio" className="bg-white border border-[#E5E5E5] rounded-lg overflow-hidden">
-                <AccordionTrigger className="px-6 py-4 hover:bg-[#F5F6F7]">
-                  <div className="flex items-center gap-2" style={{ color: '#0072C6' }}>
+              <AccordionItem value="domicilio" className="bg-white border border-[#DDDDDD] rounded-md overflow-hidden mb-4">
+                <AccordionTrigger className="px-5 py-3.5 hover:bg-[#F8F9FA] transition-colors duration-200">
+                  <div className="flex items-center gap-3" style={{ color: '#0072C6' }}>
                     <MapPin className="w-5 h-5" />
-                    <span>Consultar Expedientes según Domicilio</span>
+                    <span className="font-normal text-base">Consultar Expedientes según Domicilio</span>
                   </div>
                 </AccordionTrigger>
-                <AccordionContent className="px-6 pb-6">
+                <AccordionContent className="px-5 pb-5 pt-4 bg-[#FAFBFC]">
                   <div className="space-y-4">
                     <div>
-                      <p className="text-sm text-[#6C6C6C] mb-3">Tipo de Domicilio</p>
+                      <p className="text-sm text-[#6C6C6C] mb-3 font-normal">Tipo de Domicilio</p>
                       <div className="flex gap-4">
                         <Radio 
                           name="tipoDomicilio" 
@@ -430,7 +430,7 @@ export function ConsultasExpedientes() {
                       </div>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
                       <div>
                         <Label>Provincia</Label>
                         <Select 
@@ -512,7 +512,7 @@ export function ConsultasExpedientes() {
                       </div>
                     </div>
 
-                    <div className="flex gap-2 pt-2">
+                    <div className="flex gap-3 pt-2">
                       <Button variant="primary">
                         <Search className="w-4 h-4 mr-2" />
                         Buscar
@@ -528,14 +528,14 @@ export function ConsultasExpedientes() {
             </Accordion>
 
             {/* Barra de acciones sobre resultados */}
-            <div className="mt-6 flex flex-wrap items-center justify-between gap-4 bg-white border border-[#E5E5E5] rounded-lg p-4">
-              <div className="flex items-center gap-2">
+            <div className="mt-5 flex flex-wrap items-center justify-between gap-3 bg-white border border-[#DDDDDD] rounded-md p-4">
+              <div className="flex items-center">
                 <FilterIcon className="w-4 h-4 text-[#6C6C6C]" />
-                <span className="text-sm text-[#6C6C6C]">
+                <span className="text-sm text-[#6C6C6C] font-normal">
                   {resultados.length} resultado{resultados.length !== 1 ? 's' : ''} encontrado{resultados.length !== 1 ? 's' : ''}
                 </span>
               </div>
-              <div className="flex gap-2">
+              <div className="flex gap-3">
                 <Button variant="outline" size="sm">
                   <FileDown className="w-4 h-4 mr-2" />
                   Exportar Excel
@@ -548,23 +548,23 @@ export function ConsultasExpedientes() {
             </div>
 
             {/* Estadísticas rápidas */}
-            <div className="mt-4 grid grid-cols-1 md:grid-cols-4 gap-4">
-              <div className="bg-white border border-[#E5E5E5] rounded-lg p-4">
+            <div className="mt-4 grid grid-cols-1 md:grid-cols-4 gap-4 mb-4">
+              <div className="bg-white border border-[#DDDDDD] rounded-md p-4 hover:shadow-sm transition-shadow">
                 <div className="flex items-center justify-between">
                   <div>
-                    <p className="text-sm text-[#6C6C6C] mb-1">Total Expedientes</p>
-                    <p className="text-[#1D1D1B]">{resultados.length}</p>
+                    <p className="text-sm text-[#6C6C6C] mb-1 font-normal">Total Expedientes</p>
+                    <p className="text-2xl font-bold text-[#1D1D1B]">{resultados.length}</p>
                   </div>
                   <div className="w-10 h-10 bg-[#E3F2FD] rounded-full flex items-center justify-center">
                     <Search className="w-5 h-5 text-[#0072C6]" />
                   </div>
                 </div>
               </div>
-              <div className="bg-white border border-[#E5E5E5] rounded-lg p-4">
+              <div className="bg-white border border-[#DDDDDD] rounded-md p-4 hover:shadow-sm transition-shadow">
                 <div className="flex items-center justify-between">
                   <div>
-                    <p className="text-sm text-[#6C6C6C] mb-1">En Trámite</p>
-                    <p className="text-[#1D1D1B]">
+                    <p className="text-sm text-[#6C6C6C] mb-1 font-normal">En Trámite</p>
+                    <p className="text-2xl font-bold text-[#1D1D1B]">
                       {resultados.filter(r => r.estado === 'En Trámite').length}
                     </p>
                   </div>
@@ -573,11 +573,11 @@ export function ConsultasExpedientes() {
                   </div>
                 </div>
               </div>
-              <div className="bg-white border border-[#E5E5E5] rounded-lg p-4">
+              <div className="bg-white border border-[#DDDDDD] rounded-md p-4 hover:shadow-sm transition-shadow">
                 <div className="flex items-center justify-between">
                   <div>
-                    <p className="text-sm text-[#6C6C6C] mb-1">Finalizados</p>
-                    <p className="text-[#1D1D1B]">
+                    <p className="text-sm text-[#6C6C6C] mb-1 font-normal">Finalizados</p>
+                    <p className="text-2xl font-bold text-[#1D1D1B]">
                       {resultados.filter(r => r.estado === 'Finalizado').length}
                     </p>
                   </div>
@@ -586,11 +586,11 @@ export function ConsultasExpedientes() {
                   </div>
                 </div>
               </div>
-              <div className="bg-white border border-[#E5E5E5] rounded-lg p-4">
+              <div className="bg-white border border-[#DDDDDD] rounded-md p-4 hover:shadow-sm transition-shadow">
                 <div className="flex items-center justify-between">
                   <div>
-                    <p className="text-sm text-[#6C6C6C] mb-1">Iniciación</p>
-                    <p className="text-[#1D1D1B]">
+                    <p className="text-sm text-[#6C6C6C] mb-1 font-normal">Iniciación</p>
+                    <p className="text-2xl font-bold text-[#1D1D1B]">
                       {resultados.filter(r => r.estado === 'Iniciación').length}
                     </p>
                   </div>
@@ -602,13 +602,13 @@ export function ConsultasExpedientes() {
             </div>
 
             {/* Resultados */}
-            <div className="mt-6 bg-white border border-[#E5E5E5] rounded-lg overflow-hidden">
+            <div className="mt-5 bg-white border border-[#DDDDDD] rounded-md overflow-hidden">
               {resultados.length === 0 ? (
                 <div className="py-16 px-6 text-center">
                   <div className="w-20 h-20 mx-auto mb-4 bg-[#F5F6F7] rounded-full flex items-center justify-center">
                     <Search className="w-10 h-10 text-[#B3B3B3]" />
                   </div>
-                  <h3 className="text-[#1D1D1B] mb-2">No se encontraron expedientes</h3>
+                  <h3 className="text-lg font-semibold text-[#1D1D1B] mb-2">No se encontraron expedientes</h3>
                   <p className="text-[#6C6C6C] mb-6 max-w-md mx-auto">
                     No hay expedientes que coincidan con los criterios de búsqueda seleccionados. 
                     Intente modificar los filtros o realizar una nueva búsqueda.
@@ -623,15 +623,15 @@ export function ConsultasExpedientes() {
                   <table className="w-full">
                     <thead className="bg-[#0072C6] text-white">
                       <tr>
-                        <th className="px-4 py-3 text-left">Fecha</th>
-                        <th className="px-4 py-3 text-left">Tema/Estado</th>
-                        <th className="px-4 py-3 text-left">Fecha Últ. Modif.</th>
-                        <th className="px-4 py-3 text-left">Número Expediente</th>
-                        <th className="px-4 py-3 text-left">Código Trámite</th>
-                        <th className="px-4 py-3 text-left">Descripción del Trámite</th>
-                        <th className="px-4 py-3 text-left">Motivo Pase</th>
-                        <th className="px-4 py-3 text-left">Usuario Anterior</th>
-                        <th className="px-4 py-3 text-left">Acciones</th>
+                        <th className="px-4 py-3 text-left text-sm font-medium">Fecha</th>
+                        <th className="px-4 py-3 text-left text-sm font-medium">Tema/Estado</th>
+                        <th className="px-4 py-3 text-left text-sm font-medium">Fecha Últ. Modif.</th>
+                        <th className="px-4 py-3 text-left text-sm font-medium">Número Expediente</th>
+                        <th className="px-4 py-3 text-left text-sm font-medium">Código Trámite</th>
+                        <th className="px-4 py-3 text-left text-sm font-medium">Descripción del Trámite</th>
+                        <th className="px-4 py-3 text-left text-sm font-medium">Motivo Pase</th>
+                        <th className="px-4 py-3 text-left text-sm font-medium">Usuario Anterior</th>
+                        <th className="px-4 py-3 text-left text-sm font-medium">Acciones</th>
                       </tr>
                     </thead>
                     <tbody className="divide-y divide-[#E5E5E5]">
@@ -640,7 +640,7 @@ export function ConsultasExpedientes() {
                           <td className="px-4 py-3 text-sm">{resultado.fecha}</td>
                           <td className="px-4 py-3">
                             <div>
-                              <div className="text-sm">{resultado.tema}</div>
+                              <div className="text-sm font-medium">{resultado.tema}</div>
                               <Badge 
                                 variant={
                                   resultado.estado === 'Finalizado' ? 'success' : 
@@ -654,7 +654,7 @@ export function ConsultasExpedientes() {
                             </div>
                           </td>
                           <td className="px-4 py-3 text-sm">{resultado.fechaModif}</td>
-                          <td className="px-4 py-3 text-sm text-[#0072C6]">{resultado.numeroExpediente}</td>
+                          <td className="px-4 py-3 text-sm text-[#0072C6] font-medium">{resultado.numeroExpediente}</td>
                           <td className="px-4 py-3 text-sm">{resultado.codigoTramite}</td>
                           <td className="px-4 py-3 text-sm">{resultado.descripcionTramite}</td>
                           <td className="px-4 py-3 text-sm">{resultado.motivoPase}</td>
@@ -696,9 +696,9 @@ export function ConsultasExpedientes() {
                   </table>
                 </div>
               ) : (
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 p-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 p-5">
                   {resultadosPaginados.map((resultado) => (
-                    <div key={resultado.id} className="border border-[#E5E5E5] rounded-lg p-4 hover:shadow-md transition-shadow">
+                    <div key={resultado.id} className="border border-[#DDDDDD] rounded-md p-4 hover:shadow-md transition-shadow bg-white">
                       <div className="flex items-start justify-between mb-3">
                         <Badge 
                           variant={
@@ -739,8 +739,8 @@ export function ConsultasExpedientes() {
                           </DropdownMenuContent>
                         </DropdownMenu>
                       </div>
-                      <h3 className="text-[#0072C6] mb-2">{resultado.numeroExpediente}</h3>
-                      <p className="text-sm mb-2">{resultado.tema}</p>
+                      <h3 className="text-[#0072C6] mb-2 font-semibold">{resultado.numeroExpediente}</h3>
+                      <p className="text-sm mb-2 font-medium">{resultado.tema}</p>
                       <p className="text-sm text-[#6C6C6C] mb-1">{resultado.descripcionTramite}</p>
                       <div className="text-xs text-[#6C6C6C] mt-3 space-y-1">
                         <div className="flex justify-between">
@@ -762,8 +762,8 @@ export function ConsultasExpedientes() {
               )}
 
               {/* Paginación */}
-              <div className="flex flex-col md:flex-row items-center justify-between gap-4 px-6 py-4 border-t border-[#E5E5E5] bg-[#F5F6F7]">
-                <div className="text-sm text-[#6C6C6C] text-center md:text-left">
+              <div className="flex flex-col md:flex-row items-center justify-between gap-4 px-5 py-4 border-t border-[#DDDDDD] bg-[#FAFBFC]">
+                <div className="text-sm text-[#6C6C6C] text-center md:text-left font-normal">
                   Mostrando {(paginaActual - 1) * itemsPorPagina + 1} a{' '}
                   {Math.min(paginaActual * itemsPorPagina, resultados.length)} de {resultados.length} resultados
                 </div>
