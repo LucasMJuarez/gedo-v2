@@ -7,7 +7,7 @@ import { Textarea } from './obelisco/Textarea';
 import { Card, CardBody } from './obelisco/Card';
 import { Alert } from './obelisco/Alert';
 import { Download, FileText } from 'lucide-react';
-import { toast } from 'sonner@2.0.3';
+import { toast } from 'sonner';
 
 interface DocumentGeneratorProps {
   onBack: () => void;

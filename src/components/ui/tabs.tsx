@@ -5,47 +5,24 @@ import Box from "@mui/material/Box";
 import { styled } from "@mui/material/styles";
 import { cn } from "./utils";
 
-const StyledTabs = styled(MuiTabs)(({ theme }) => ({
+// Context para compartir el valor seleccionado
+const TabsContext = React.createContext<string>('');
+
+const StyledTabs = styled(MuiTabs)({
   minHeight: 36,
   '& .MuiTabs-indicator': {
     display: 'none',
   },
-  '& .MuiTabs-flexContainer': {
-    backgroundColor: theme.palette.mode === 'dark' ? 'rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.05)',
-    borderRadius: 12,
-    padding: 3,
-    gap: 2,
-    display: 'inline-flex',
-    width: 'fit-content',
-  },
-}));
+});
 
-const StyledTab = styled(MuiTab)(({ theme }) => ({
+const StyledTab = styled(MuiTab)({
   minHeight: 30,
   fontSize: '0.875rem',
   fontWeight: 500,
-  padding: '4px 8px',
-  borderRadius: 12,
   textTransform: 'none',
   minWidth: 'auto',
-  border: '1px solid transparent',
   transition: 'all 0.2s',
-  color: theme.palette.text.secondary,
-  '&.Mui-selected': {
-    backgroundColor: theme.palette.background.paper,
-    color: theme.palette.text.primary,
-    border: theme.palette.mode === 'dark' 
-      ? `1px solid ${theme.palette.divider}` 
-      : '1px solid transparent',
-  },
-  '&:hover': {
-    backgroundColor: theme.palette.action.hover,
-  },
-  '&.Mui-disabled': {
-    opacity: 0.5,
-    pointerEvents: 'none',
-  },
-}));
+});
 
 interface TabsProps extends Omit<MuiTabsProps, 'value' | 'onChange'> {
   className?: string;
@@ -59,25 +36,35 @@ function Tabs({ className, value, onValueChange, defaultValue, children, ...prop
   const [internalValue, setInternalValue] = React.useState(defaultValue || '');
   const currentValue = value !== undefined ? value : internalValue;
 
-  const handleChange = (_event: React.SyntheticEvent, newValue: string) => {
+  console.log('🔵 Tabs - currentValue:', currentValue, 'value prop:', value, 'defaultValue:', defaultValue);
+
+  const handleChange = React.useCallback((_event: React.SyntheticEvent, newValue: string) => {
+    console.log('🟢 Tab cambiado a:', newValue);
     if (value === undefined) {
       setInternalValue(newValue);
     }
     onValueChange?.(newValue);
-  };
+  }, [value, onValueChange]);
 
   return (
-    <Box data-slot="tabs" className={cn("flex flex-col gap-2", className)}>
-      {React.Children.map(children, (child) => {
-        if (React.isValidElement(child)) {
-          return React.cloneElement(child as React.ReactElement<any>, {
-            value: currentValue,
-            onChange: handleChange,
-          });
-        }
-        return child;
-      })}
-    </Box>
+    <TabsContext.Provider value={currentValue}>
+      <Box data-slot="tabs" className={cn("w-full", className)}>
+        {React.Children.map(children, (child) => {
+          if (React.isValidElement(child)) {
+            // Check if it's a TabsList by checking its props or displayName
+            const childType = (child.type as any);
+            if (childType?.displayName === 'TabsList' || child.props?.['data-tabs-list'] !== undefined) {
+              return React.cloneElement(child as React.ReactElement<any>, {
+                value: currentValue,
+                onChange: handleChange,
+              });
+            }
+            return child;
+          }
+          return child;
+        })}
+      </Box>
+    </TabsContext.Provider>
   );
 }
 
@@ -86,14 +73,18 @@ interface TabsListProps {
   children: React.ReactNode;
   value?: string;
   onChange?: (event: React.SyntheticEvent, value: string) => void;
+  'data-tabs-list'?: boolean;
 }
 
 function TabsList({ className, children, value, onChange, ...props }: TabsListProps) {
+  console.log('🔴 TabsList - value:', value);
+  
   return (
     <StyledTabs
-      data-slot="tabs-list"
       value={value || false}
       onChange={onChange}
+      variant="scrollable"
+      scrollButtons="auto"
       className={className}
       {...props}
     >
@@ -101,6 +92,8 @@ function TabsList({ className, children, value, onChange, ...props }: TabsListPr
     </StyledTabs>
   );
 }
+
+TabsList.displayName = 'TabsList';
 
 interface TabsTriggerProps {
   className?: string;
@@ -112,7 +105,6 @@ interface TabsTriggerProps {
 function TabsTrigger({ className, value, children, ...props }: TabsTriggerProps) {
   return (
     <StyledTab
-      data-slot="tabs-trigger"
       value={value}
       label={children}
       className={className}
@@ -128,11 +120,21 @@ interface TabsContentProps {
 }
 
 function TabsContent({ className, value, children }: TabsContentProps) {
+  const currentValue = React.useContext(TabsContext);
+  
+  console.log(`🟡 TabsContent - value prop: "${value}", context value: "${currentValue}", match: ${currentValue === value}`);
+  
+  // Solo mostrar el contenido si el value coincide con el valor activo
+  if (currentValue !== value) {
+    return null;
+  }
+  
+  console.log(`✅ Renderizando contenido del tab: ${value}`);
+  
   return (
     <Box
-      data-slot="tabs-content"
       role="tabpanel"
-      className={cn("flex-1 outline-none", className)}
+      className={cn("mt-6", className)}
     >
       {children}
     </Box>
