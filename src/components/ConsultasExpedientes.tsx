@@ -224,8 +224,8 @@ export function ConsultasExpedientes() {
             <Accordion type="multiple" defaultValue={['numero-sade', 'filtros', 'domicilio']} className="space-y-4" collapsible>
               {/* Consultar por Número SADE */}
               <AccordionItem value="numero-sade" className="bg-white border border-[#E5E5E5] rounded-lg overflow-hidden">
-                <AccordionTrigger className="px-6 py-4 hover:bg-[#F5F6F7] text-[#0072C6]">
-                  <div className="flex items-center gap-2">
+                <AccordionTrigger className="px-6 py-4 hover:bg-[#F5F6F7]">
+                  <div className="flex items-center gap-2" style={{ color: '#0072C6' }}>
                     <Search className="w-5 h-5" />
                     <span>Consultar Expedientes por Número SADE</span>
                   </div>
@@ -292,8 +292,8 @@ export function ConsultasExpedientes() {
 
               {/* Consultar según Filtro */}
               <AccordionItem value="filtros" className="bg-white border border-[#E5E5E5] rounded-lg overflow-hidden" >
-                <AccordionTrigger className="px-6 py-4 hover:bg-[#F5F6F7] text-[#0072C6]">
-                  <div className="flex items-center gap-2">
+                <AccordionTrigger className="px-6 py-4 hover:bg-[#F5F6F7]">
+                  <div className="flex items-center gap-2" style={{ color: '#0072C6' }}>
                     <Search className="w-5 h-5" />
                     <span>Consultar Expedientes según Filtro</span>
                   </div>
@@ -402,8 +402,8 @@ export function ConsultasExpedientes() {
 
               {/* Consultar según Domicilio */}
               <AccordionItem value="domicilio" className="bg-white border border-[#E5E5E5] rounded-lg overflow-hidden">
-                <AccordionTrigger className="px-6 py-4 hover:bg-[#F5F6F7] text-[#0072C6]">
-                  <div className="flex items-center gap-2">
+                <AccordionTrigger className="px-6 py-4 hover:bg-[#F5F6F7]">
+                  <div className="flex items-center gap-2" style={{ color: '#0072C6' }}>
                     <MapPin className="w-5 h-5" />
                     <span>Consultar Expedientes según Domicilio</span>
                   </div>
